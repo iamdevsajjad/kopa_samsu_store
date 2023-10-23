@@ -40,8 +40,7 @@ const Home = () => {
   }, []);
   return (
     <div>
-      <Navbar cart={cart} />
-      <button onClick={openModal}>Open Modal</button>
+      <Navbar cart={cart} openModal = {openModal}/>
       <div className="allCards">
         <div className="card-container">
           {cards.map((card) => (
@@ -54,10 +53,24 @@ const Home = () => {
         onRequestClose={closeModal}
         style={customStyles}
         contentLabel="Example Modal"
+        cart = {cart}
         
       >
         <button onClick={closeModal} className="bg-red-500 text-white px-[6px] rounded-full " >X</button>
-        <h1>hi i am mridul</h1>
+        <div className="fullCard w-80">
+           {
+            cart.map(item => <span
+             key="item.id"
+             className="flex border  mb-2"
+            >
+                <img className="w-14 m-6" src={item.img} alt="" />
+                <div className="text my-auto">
+                <h1>{item.name}</h1>
+                <p>{item.price}</p>
+                </div>
+            </span> )
+           }
+        </div>
       </Modal>
     </div>
   );
