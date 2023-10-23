@@ -1,11 +1,14 @@
 import "./App.css";
+import Home from "./Component/Pages/Home/Home";
+import Navbar from "./Component/Shared/Navbar/Navbar";
 
 function App() {
   
 
   return (
     <>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+    <Navbar/>
+    <Home/>
     </>
   );
 }
